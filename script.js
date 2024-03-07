@@ -1,10 +1,10 @@
 //your JS code here. If required.
-// let btn = document.getElementById('btn');
-
-function myFunc() {
-  let fname = document.getElementById('fname');
-  let lname = document.getElementById('lname');
-  let email = document.getElementById('email');
-  let phone = document.getElementById('phone');
-  alert('First Name: '+ fname.value + ' ' + 'Last Name: '+ lname.value + 'Phone Number: ' + phone.value + ' ' +  "Email ID: " +email.value);
-}
+document.getElementById('form').addEventListener('submit', function(event) {
+  event.preventDefault();
+  var formData = new FormData(this);
+  var formValues = '';
+  for (var pair of formData.entries()) {
+    formValues += pair[0] + ': ' + pair[1] + ' ';
+  }
+  alert(formValues.trim());
+});
